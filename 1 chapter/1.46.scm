@@ -6,6 +6,7 @@
 					(try next))))
 	(lambda (first-guess) (try first-guess)))
 
+; fixed-point
 (define tolerance 0.00001)
 
 (define (close-enough? v1 v2)
@@ -16,6 +17,7 @@
 
 (fixed-point cos 1.0)
 
+; sqrt
 (define (average x y)
 	(/ (+ x y) 2))
 
