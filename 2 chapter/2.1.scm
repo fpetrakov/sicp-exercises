@@ -1,0 +1,5 @@
+(define (make-rat n d)
+	(let ((g (gcb n d))
+				(denom-sign (if (> d 0) 1 (- 1))))
+		(cons (* (/ n g) denom-sign) 
+					(* (/ d g) denom-sign))))

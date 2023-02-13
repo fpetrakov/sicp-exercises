@@ -20,8 +20,10 @@
 
 ; make-rat is a constructor
 (define (make-rat n d)
-	(let ((g (gcb n d)))
-		(cons (/ n g) (/ d g))))
+	(let ((g (gcb n d))
+				(denom-sign (if (> d 0) 1 (- 1))))
+		(cons (* (/ n g) denom-sign) 
+					(* (/ d g) denom-sign))))
 
 ; numer and denom are selectors
 (define (numer x) (car x))
