@@ -19,16 +19,18 @@
 			(make-interval (min p1 p2 p3 p4)
 										 (max p1 p2 p3 p4))))
 
-(define (div-interval x y)
-	(mul-interval x
-								(make-interval (/ 1.0 (upper-bound y))
-															 (/ 1.0 (lower-bound y)))))
+(define (div-interval x y) 
+  (if (or (<= (lower-bound y) 0) (<= (upper-bound y) 0)) 
+      (error "Division error (interval spans 0)" y) 
+      (mul-interval x  
+                    (make-interval (/ 1 (upper-bound y)) 
+                                   (/ 1 (lower-bound y)))))) 
 
 (define (width-interval a)
 	(- (upper-bound a) (lower-bound a)))
 
-(define int1 (make-interval 100.0 101.0))
-(define int2 (make-interval 22.0 23.0))
+(define int1 (make-interval 0 100))
+(define int2 (make-interval 22 23))
 
 (display "int1= ") 
 (display (width-interval int1)) (newline)
@@ -38,3 +40,5 @@
 (display (width-interval (mul-interval int1 int2))) (newline)
 (display "div= ")
 (display (width-interval (div-interval int1 int2))) (newline)
+(display "new div= ")
+(display (div-interval int1 int2))
