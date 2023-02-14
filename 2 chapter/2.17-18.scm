@@ -42,3 +42,20 @@
 
 ; 9
 (length nine)
+
+(define (last-pair items)
+	(if (null? (cdr items))
+			items
+			(last-pair (cdr items))))
+
+; (93)
+(last-pair (list 23 82 82 93))
+
+(define nil '())
+
+(define (reverse items)
+	(if (null? (cdr items))
+			items
+			(append (reverse (cdr items)) (cons (car items) nil))))
+
+(reverse (list 1 2 3 4 5))
