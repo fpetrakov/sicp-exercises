@@ -1,11 +1,5 @@
 (define nil '())
 
-(define (scale-tree tree factor)
-	(cond ((null? tree) nil)
-				((not (pair? tree)) (* tree factor))
-				(else (cons (scale-tree (car tree) factor)
-										(scale-tree (cdr tree) factor)))))
-
 (define (square-tree tree)
 	(cond ((null? tree) nil)
 				((not (pair? tree)) (* tree tree))
