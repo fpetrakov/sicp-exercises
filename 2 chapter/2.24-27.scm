@@ -42,5 +42,20 @@
 (list c d)
 
 ; 2.27
+(define nil '())
 
+(define (reverse items)
+	(if (null? (cdr items))
+			items
+			(append (reverse (cdr items)) (cons (car items) nil))))
 
+(define (deep-reverse items)
+	(cond ((null? items) nil)
+				((pair? (car items))
+					(append (deep-reverse (cdr items))
+									(list (deep-reverse (car items)))))
+				(else
+					(append (deep-reverse (cdr items))
+									(list (car items))))))
+
+(display (deep-reverse (list (list 1 2) (list 3 4) (list 5 6)))) (newline)
