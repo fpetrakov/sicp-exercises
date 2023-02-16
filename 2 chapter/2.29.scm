@@ -22,9 +22,6 @@
 				(else (+ (total-weight (branch-structure (left-branch mobile)))
 								 (total-weight (branch-structure (right-branch mobile)))))))
 
-(define mob (make-mobile (make-branch 1 2) (make-branch 1 2)))
-(display (total-weight mob)) (newline)
-
 (define (helper branch)
 	(* (branch-length branch) (total-weight (branch-structure branch))))
 
@@ -35,4 +32,6 @@
 					 (balanced? (branch-structure (left-branch mobile)))
 					 (balanced? (branch-structure (right-branch mobile))))))
 
+(define mob (make-mobile (make-branch 1 2) (make-branch 1 2)))
+(display (total-weight mob)) (newline)
 (display (balanced? mob)) (newline)
