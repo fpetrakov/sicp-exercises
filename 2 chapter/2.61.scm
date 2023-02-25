@@ -18,6 +18,7 @@
 							((< x2 x1)
 							 (intersection-set (cdr set2) set1))))))
 
+; 2.61
 (define (adjoin-set x set)
 		(cond ((null? set) (list x))
 					((= x (car set)) set)
@@ -26,3 +27,22 @@
 	
 (display (adjoin-set 10 '(1 2 3 4 5 6 7 8 9))) (newline)
 (display (adjoin-set 5 '(1 2 3 4 6 7 8 9))) (newline)
+(display (adjoin-set 4 '(1 2 3 4 6 7 8 9))) (newline)
+
+; 2.62
+(define nil '())
+
+(define (filter predicate sequence)
+	(cond ((null? sequence) nil)
+				((predicate (car sequence))
+				 (cons (car sequence)
+				 			 (filter predicate (cdr sequence))))
+				(else (filter predicate (cdr sequence)))))
+
+(define (union-set set1 set2)
+	(append (filter 
+						(lambda (x) (not( element-of-set? x set2))) 
+						set1) 
+					set2))
+
+(display (union-set (list 1 2 3 4 5) (list 3 4 5 6 7))) (newline)
