@@ -66,8 +66,6 @@
 										(make-code-tree (make-leaf 'D 1)
 																		(make-leaf 'C 1)))))
 
-; (('leaf 'A 4) (('leaf 'B 2) (('leaf 'D 1) ('leaf 'C 1))))
-
 
 ; 2.67
 ; (A D A B B C A)
@@ -102,3 +100,16 @@
 
 ; (0 1 1 0 0 1 0 1 0 1 1 1 0)
 (display (encode sample-message sample-tree)) (newline)	
+
+
+; 2.69
+(define (successive-merge pairs)
+	(foldl make-code-tree (car pairs) (cdr pairs)))
+
+(define (generate-huffman-tree pairs)
+	(successive-merge (make-leaf-set pairs)))
+
+(display (cadr (make-leaf-set (list (list 'A 1) (list 'B 5) (list 'D 3))))) (newline)
+; ((leaf A 1) (leaf D 3) (leaf B 5))
+
+(display (generate-huffman-tree (list (list 'A 1) (list 'B 5) (list 'D 3)))) (newline)
