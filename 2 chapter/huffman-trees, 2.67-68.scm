@@ -66,7 +66,39 @@
 										(make-code-tree (make-leaf 'D 1)
 																		(make-leaf 'C 1)))))
 
-(define sample-message '(0 1 1 0 0 1 0 1 0 1 1 1 0))
+; (('leaf 'A 4) (('leaf 'B 2) (('leaf 'D 1) ('leaf 'C 1))))
+
 
 ; 2.67
-(display (decode sample-message sample-tree)) (newline)
+; (A D A B B C A)
+(define sample-bits '(0 1 1 0 0 1 0 1 0 1 1 1 0))
+(display (decode sample-bits sample-tree)) (newline)
+
+
+; 2.68
+(define (memq item seq)
+ 	(cond ((null? seq) #f)
+				((eq? item (car seq)) seq)
+				(else (memq item (cdr seq)))))
+
+(define (encode-symbol sym tree)
+	(if (leaf? tree)
+		(if (eq? sym (symbol-leaf tree))
+				'()
+				(error "no such symbol in tree -- ENCODE SYMBOL" sym))
+		(let ((left (left-branch tree))
+					(right (right-branch tree)))
+			(if (memq sym (symbols left))
+					(cons 0 (encode-symbol sym left))
+					(cons 1 (encode-symbol sym right))))))
+
+(define (encode message tree)
+	(if (null? message)
+			'()
+			(append (encode-symbol (car message) tree)
+							(encode (cdr message) tree))))
+
+(define sample-message (list 'A 'D 'A 'B 'B 'C 'A))
+
+; (0 1 1 0 0 1 0 1 0 1 1 1 0)
+(display (encode sample-message sample-tree)) (newline)	
