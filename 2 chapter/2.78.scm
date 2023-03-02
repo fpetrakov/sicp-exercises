@@ -1,6 +1,6 @@
 ; Tags
 (define (attach-tag type-tag contents)
-	(cond [(eq? type-tag 'scheme-number') contents]
+	(cond [(eq? type-tag 'scheme-number) contents]
 				[else (cons type-tag contents)]))
 
 (define (type-tag datum)
