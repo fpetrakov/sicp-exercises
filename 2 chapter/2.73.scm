@@ -69,3 +69,6 @@
 	; public interface
 	(put 'deriv '* deriv-product)
 'done)
+
+;; d
+; (put 'deriv '+ deriv-sum) -> (put '+ 'deriv deriv-sum)
