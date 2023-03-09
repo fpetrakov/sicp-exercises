@@ -18,9 +18,3 @@
 				(error "Wrong password")))
 					
 	dispatch)
-
-
-(define acc (make-account 100 'pass))
-(display ((acc 'pass 'withdraw) 10)) (newline)
-(display ((acc 'some 'withdraw) 90)) (newline)
-(display ((acc 'pass 'deposit) 100)) (newline)
