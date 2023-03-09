@@ -14,6 +14,6 @@
 (define paul-acc
 	(make-joint peter-acc 'open-sesame 'rosebud))
 
-(display ((paul-acc 'rosebud 'withdraw) 50)) (newline)
-(display ((paul-acc 'rosebud 'withdraw) 25)) (newline)
-(display ((paul-acc 'rosebud 'deposit) 1000)) (newline)
+; (display ((paul-acc 'rosebud 'withdraw) 50)) (newline)
+; (display ((paul-acc 'rosebud 'withdraw) 25)) (newline)
+; (display ((paul-acc 'rosebud 'deposit) 1000)) (newline)
