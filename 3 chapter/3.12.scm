@@ -14,10 +14,10 @@
 (define z (append x y)) 
 
 ; (b)
-(display (cdr x)) (newline)
+; (display (cdr x)) (newline)
 
 ; (a b c d)
 (define w (append! x y))
 
 ; (b c d)
-(display (cdr x)) (newline)
+; (display (cdr x)) (newline)
