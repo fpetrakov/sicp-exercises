@@ -1,7 +1,10 @@
-(load "./3 chapter/one-key-table.scm")
-
-(define (make-table)
+(define (make-table same-key?)
 	(let ((local-table (list '*table*)))
+		(define (assoc key records)
+			(cond ((null? records) #f)
+						((same-key? key (caar records)) (car records))
+						(else (assoc key (cdr records)))))
+
 		(define (lookup key1 key2)
 			(let ((subtable (assoc key1 (cdr local-table))))
 				(if subtable
@@ -32,7 +35,3 @@
 						(esle (error "Unknown operation -- TABLE" m))))
 						
 		dispatch))
-
-(define operation-table (make-table))
-(define get (operation-table 'lookup))
-(define put (operation-table 'insert!))
