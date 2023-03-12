@@ -11,8 +11,6 @@
 
 	(define (empty-queue?) (null? (front-ptr)))
 
-	(define (make-queue) (cons '() '()))
-
 	(define (front-queue)
 		(if (empty-queue?)
 				(error "FRONT is called with empty queue" q)
