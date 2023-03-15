@@ -53,4 +53,3 @@
 	(add-action! a1 and-action-procedure)
 	(add-action! a2 and-action-procedure)
 	'ok)
-
