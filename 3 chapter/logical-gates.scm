@@ -24,7 +24,7 @@
 				(c1 (make-wire))
 				(c2 (make-wire))
 		(half-adder b c-in s c1)
-		(half-adder a s cum c2)
+		(half-adder a s sum c2)
 		(or-gate c1 c2 c-out)
 		'ok)))
 
