@@ -41,8 +41,8 @@
 	(stream-for-each display-line s))
 
 (define (display-line x)
-	(newline)
-	(display x))
+	(display x)
+	(newline))
 
 (define (stream-filter pred stream)
 	(cond ((stream-null? stream) the-empty-stream)
@@ -58,9 +58,3 @@
 			(cons-stream
 			 low
 			 (stream-enumerate-interval (+ low 1) high))))
-
-(define s
-	(stream-enumerate-interval 10 20))
-
-(display s) (newline)
-(display-stream s)

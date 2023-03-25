@@ -1,4 +1,4 @@
-(load "./3 chapter/stream.scm")
+(load "./3 chapter/section-3.5.scm")
 
 (define (stream-map proc . argstreams)
 	(if (stream-null? (car argstreams))
