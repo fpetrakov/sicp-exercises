@@ -1,3 +1,6 @@
+(load "./4 chapter/apply.scm")
+(load "./4 chapter/list-of-values.scm")
+
 (define (eval exp env)
   (cond ((self-evaluating? exp) exp)
 		((variable? exp) (lookup-variable-value exp env))
